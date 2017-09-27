@@ -87,6 +87,8 @@ var videoComment = {
                                 );
                                 $(reply_wrapper).append($(reply));
                             }
+                            var reply_eleArr = $('.reply-item');
+                            videoComment.fullText('reply-box', reply_num, 2, reply_eleArr);
                         }
 
                     }
@@ -201,9 +203,26 @@ var videoComment = {
         });
     },// page
     // 展开全文功能
-    fullText: function (address, replyLength, showNum) {
+    fullText: function (address, replyLength, showNum, replyEleArr) {
+        // address: 添加展开全文功能的元素
+        // replyLength：该层楼的总回复数
+        // showNum：展示的回复数
+        // replyEleArr: 需要被操作的元素对象数组
+        if (replyLength <= showNum) {
+            return;
+        } else {
+            $(replyEleArr).hide();
+            for(var i=0;i<showNum;i++){
+                $(replyEleArr).eq(i).show();
+            }
+            var fullTextButton=$('<div class="reply-more"><span></span>展开更多评论</div>');
+            $('.'+address).append($(fullTextButton));
+            $(fullTextButton).click(function () {
+                $(replyEleArr).hide();
+            })
+        }
 
-    }
+    }// fullText
 };// videoComment
 
 $(function () {

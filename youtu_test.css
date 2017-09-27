@@ -800,6 +800,7 @@ body {
 
 /*回复更多 reply-more*/
 .reply-more {
+    cursor: pointer;
     height: 40px;
     line-height: 40px;
     text-align: center;

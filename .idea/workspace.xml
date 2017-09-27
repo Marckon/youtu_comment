@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="defd147d-4620-46ad-8216-006192728090" name="Default" comment="" />
+    <list default="true" id="defd147d-4620-46ad-8216-006192728090" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_youtu.html" afterPath="$PROJECT_DIR$/test_youtu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vcomment.js" afterPath="$PROJECT_DIR$/vcomment.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/youtu_test.css" afterPath="$PROJECT_DIR$/youtu_test.css" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -17,7 +22,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/final_project/html/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
+            <state relative-caret-position="0">
               <caret line="6" column="45" lean-forward="false" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
               <folding />
             </state>
@@ -74,34 +79,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_youtu.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test_youtu.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_youtu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="97" column="21" lean-forward="true" selection-start-line="95" selection-start-column="19" selection-end-line="97" selection-end-column="21" />
+            <state relative-caret-position="331">
+              <caret line="207" column="29" lean-forward="true" selection-start-line="207" selection-start-column="29" selection-end-line="207" selection-end-column="29" />
               <folding>
-                <element signature="e#984#6691#0" expanded="false" />
-                <element signature="e#7874#11799#0" expanded="false" />
-                <element signature="e#11889#14934#0" expanded="false" />
+                <element signature="e#8039#11964#0" expanded="false" />
+                <element signature="e#12828#15873#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vcomment.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="vcomment.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vcomment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+            <state relative-caret-position="464">
+              <caret line="204" column="4" lean-forward="false" selection-start-line="204" selection-start-column="4" selection-end-line="224" selection-end-column="16" />
               <folding>
                 <element signature="e#66#265#0" expanded="false" />
                 <element signature="e#311#538#0" expanded="false" />
                 <element signature="e#586#794#0" expanded="false" />
-                <element signature="e#1434#6045#0" expanded="false" />
-                <element signature="e#7561#9977#0" expanded="false" />
-                <element signature="e#10130#10439#0" expanded="false" />
-                <element signature="e#10490#10732#0" expanded="false" />
-                <element signature="e#10783#11028#0" expanded="false" />
+                <element signature="e#7718#10134#0" expanded="false" />
+                <element signature="e#10287#10596#0" expanded="false" />
+                <element signature="e#10647#10889#0" expanded="false" />
+                <element signature="e#10940#11185#0" expanded="false" />
+                <element signature="e#11284#11883#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -110,8 +114,8 @@
       <file leaf-file-name="youtu_test.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/youtu_test.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+            <state relative-caret-position="333">
+              <caret line="802" column="19" lean-forward="false" selection-start-line="802" selection-start-column="19" selection-end-line="802" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -145,6 +149,8 @@
       <find>.up</find>
       <find>.down</find>
       <find>.reply</find>
+      <find>text</find>
+      <find>reply-mo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -182,8 +188,8 @@
         <option value="$PROJECT_DIR$/final_project/css/layout.css" />
         <option value="$PROJECT_DIR$/youtu_test.json" />
         <option value="$PROJECT_DIR$/youtu_test.css" />
-        <option value="$PROJECT_DIR$/test_youtu.html" />
         <option value="$PROJECT_DIR$/vcomment.js" />
+        <option value="$PROJECT_DIR$/test_youtu.html" />
       </list>
     </option>
   </component>
@@ -286,7 +292,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95531000" />
+    <option name="totallyTimeSpent" value="97364000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -660,45 +666,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/final_project/html/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
+        <state relative-caret-position="0">
           <caret line="6" column="45" lean-forward="false" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_youtu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="97" column="21" lean-forward="true" selection-start-line="95" selection-start-column="19" selection-end-line="97" selection-end-column="21" />
-          <folding>
-            <element signature="e#984#6691#0" expanded="false" />
-            <element signature="e#7874#11799#0" expanded="false" />
-            <element signature="e#11889#14934#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/youtu_test.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+        <state relative-caret-position="333">
+          <caret line="802" column="19" lean-forward="false" selection-start-line="802" selection-start-column="19" selection-end-line="802" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vcomment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+        <state relative-caret-position="464">
+          <caret line="204" column="4" lean-forward="false" selection-start-line="204" selection-start-column="4" selection-end-line="224" selection-end-column="16" />
           <folding>
             <element signature="e#66#265#0" expanded="false" />
             <element signature="e#311#538#0" expanded="false" />
             <element signature="e#586#794#0" expanded="false" />
-            <element signature="e#1434#6045#0" expanded="false" />
-            <element signature="e#7561#9977#0" expanded="false" />
-            <element signature="e#10130#10439#0" expanded="false" />
-            <element signature="e#10490#10732#0" expanded="false" />
-            <element signature="e#10783#11028#0" expanded="false" />
+            <element signature="e#7718#10134#0" expanded="false" />
+            <element signature="e#10287#10596#0" expanded="false" />
+            <element signature="e#10647#10889#0" expanded="false" />
+            <element signature="e#10940#11185#0" expanded="false" />
+            <element signature="e#11284#11883#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_youtu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="207" column="29" lean-forward="true" selection-start-line="207" selection-start-column="29" selection-end-line="207" selection-end-column="29" />
+          <folding>
+            <element signature="e#8039#11964#0" expanded="false" />
+            <element signature="e#12828#15873#0" expanded="false" />
           </folding>
         </state>
       </provider>
