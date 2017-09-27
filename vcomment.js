@@ -35,7 +35,7 @@ var videoComment = {
                 if (comment_num > 0) {
                     for (var i = 0; i < comment_num; i++) {
                         // 创建评论区
-                        var comment = $('<div class="list-item clearfloat" data-id="' + data.data.data[i].id + '">\n' +
+                        var comment = $('<div class="list-item clearfloat" id="' + data.data.data[i].id + '">\n' +
                             '                <div class="u-face" >\n' +
                             '                    <a href="space.html?id=' + data.data.data[i].userId + '" target="_blank">\n' +
                             '                        <img src="' + data.data.data[i].userPortrait + '">\n' +
@@ -87,15 +87,15 @@ var videoComment = {
                                 );
                                 $(reply_wrapper).append($(reply));
                             }
-
+                            var reply_eleArr = $('#'+data.data.data[i].id ).find('.reply-item');// 找到该评论下的所有回复
+                            var reply_box=$('#'+data.data.data[i].id).find('.reply-box');// 找到该评论下的回复区
+                            videoComment.fullText(reply_box, reply_num, 2, reply_eleArr);
                         }
 
                     }
                 }
                 videoComment.makeReply();
                 videoComment.Page('comment-list', total_comments, pageNum, pageSize, 5, itemNo, typeNo);
-                var reply_eleArr = $('.reply-item');
-                videoComment.fullText('reply-box', reply_num, 2, reply_eleArr);
             }
         });
     },// createCommentArea
@@ -217,9 +217,9 @@ var videoComment = {
                 $(replyEleArr).eq(i).show();
             }
             var fullTextButton=$('<div class="reply-more"><span></span>展开更多评论</div>');
-            $('.'+address).append($(fullTextButton));
+            $(address).append($(fullTextButton));
             $(fullTextButton).click(function () {
-                $(replyEleArr).hide();
+                $(replyEleArr).show();
             })
         }
 
