@@ -70,8 +70,8 @@
                                         }
                                     }
                                 }
-                                $('.text').after('<div class="reply-box" ></div>');
-                                var reply_wrapper = $('.reply-box');
+                                $('.text:last').after('<div class="reply-box" ></div>');
+                                var reply_wrapper = $('.reply-box:last');
                                 for (var j = 0; j < reply_num; j++) {
                                     var reply = $('   <div class="reply-item reply-border" >\n' +
                                         '                            <div class="reply-con clearfloat">\n' +
@@ -218,6 +218,7 @@
                 $('.'+address).append($(fullTextButton));
                 $(fullTextButton).click(function () {
                     $(replyEleArr).show();
+
                 })
             }
 
