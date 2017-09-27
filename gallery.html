@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{font-size: 28px}
+        li{
+            float: left;
+            margin: 20px;
+        }
+        #pic{
+            clear: both;
+        }
+        .emtest{
+            font-size: 16pt;
+        }
+        .emt-1{
+            font-size: 1em;
+        }
+        .px-1{
+            font-size: 16px;
+        }
+        .rem-1{
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="gallery">
+        <h1>CHOOSE ONE</h1>
+        <ul id="piclist">
+            <li><a href="image/1.jpeg" >1</a></li>
+            <li><a href="image/2.jpeg" >2</a></li>
+            <li><a href="image/3.jpeg" >3</a></li>
+            <li><a href="image/4.jpg"  >4</a></li>
+            <li><a href="image/5.jpeg" >5</a></li>
+            <li><a href="image/6.jpeg" >6</a></li>
+            <!--<li><a href="image/"></a></li>
+            <li><a href="image/"></a></li>
+            <li><a href="image/"></a></li>
+            <li><a href="image/"></a></li>
+            <li><a href="image/"></a></li>
+            <li><a href="image/"></a></li>
+            <li><a href="image/"></a></li>
+            <li><a href="image/"></a></li>
+            <li><a href="image/"></a></li>
+            <li><a href="image/"></a></li>
+            <li><a href="image/"></a></li>
+            <li><a href="image/"></a></li>-->
+        </ul>
+    </div>
+<div id="pic">
+    <img src="" alt="" id="chosen-image">
+</div>
+    <div class="emtest">
+        <p class="emt-1">1em</p>
+    </div>
+    <p class="emt-1">1em</p>
+    <p class="px-1">16px</p>
+    <p class="rem-1">1rem</p>
+    <script>
+        function prepareGallery() {
+            if(!document.getElementsByTagName) return false;
+            if(!document.getElementById) return false;
+            if(!document.getElementById("piclist")) return false;
+            var gallery=document.getElementById("piclist");
+            var links=gallery.getElementsByTagName("a");
+            for (var i=0;i<links.length;i++){
+                links[i].onclick=function () {
+                    showPic(this);
+                    return !showPic(this);
+                };
+//                links[i].onkeypress=links[i].onclick;
+            }
+        }
+        function showPic(whichPic) {
+                if (!document.getElementById("chosen-image")) return false;
+                var source=whichPic.getAttribute("href");
+                var showarea=document.getElementById("chosen-image");
+                showarea.setAttribute("src",source);
+                return true;
+        }
+        window.onload=prepareGallery()
+    </script>
+</body>
+</html>

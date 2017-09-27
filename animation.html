@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*#cube{
+            background-color: #ff5555;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 100px;
+            top:50px;
+        }*/
+    </style>
+</head>
+<body>
+<!--<div id="cube"></div>
+<div id="cube2"></div>-->
+<div>
+    <h1>WEB DESIGN</h1>
+    <p>These are you should know</p>
+    <ul>
+        <li><a href="">HTML</a></li>
+        <li><a href="">CSS</a></li>
+        <li><a href="">JAVASCRIPT</a></li>
+    </ul>
+    <div id="hjc">
+        <img src="image/timg.jpg" alt="picture" id="hjc_img">
+    </div>
+</div>
+</body>
+<script>
+    /*var cube = document.getElementById("cube");
+    cube.style.cssText = "background-color: #ff5555;\n" +
+        "            width: 50px;\n" +
+        "            height: 50px;\n" +
+        "            position: absolute;\n" +
+        "            left: 100px;\n" +
+        "            top:50px;"
+    var cube2= document.getElementById("cube2");
+    cube2.style.cssText = "background-color: #abc;\n" +
+        "            width: 50px;\n" +
+        "            height: 50px;\n" +
+        "            position: absolute;\n" +
+        "            left: 500px;\n" +
+        "            top:50px;";
+*/
+
+
+
+    function moveElement(ID, final_x, final_y, interval) {
+        var ele = document.getElementById(ID);
+        if(ele.movement) clearTimeout(ele.movement)
+        var xpos = parseInt(ele.style.left);
+        var ypos = parseInt(ele.style.top);
+        if(!xpos) xpos=0;
+        if(!ypos) ypos=0;
+        if (xpos == final_x && ypos == final_y) {
+            return true;
+        }
+        if (ypos < final_y) {
+            dist=Math.ceil((final_y-ypos)/10);
+            ypos+=dist;
+        }
+        if (ypos > final_y) {
+            dist=Math.ceil((ypos-final_y)/10);
+            ypos-=dist;
+        }
+        if (xpos < final_x) {
+            dist=Math.ceil((final_x-xpos)/10);
+            xpos+=dist;
+        }
+        if (xpos > final_x) {
+            dist=Math.ceil((xpos-final_x)/10);
+            xpos-=dist;
+        }
+        ele.style.left = xpos + "px";
+        ele.style.top = ypos + "px";
+        var repeat = "moveElement( '" + ID + "' ," + final_x + "," + final_y + "," + interval + ")";
+        ele.movement = setTimeout(repeat, interval);
+    }
+    function imageSlide() {
+        var imagewrapper = document.getElementById("hjc");
+        imagewrapper.style.cssText = "width:98px; height:98px; overflow:hidden; position:relative;";
+        var image = document.getElementById("hjc_img");
+        image.style.cssText = "position:absolute; top:-506px; ";
+        var a = document.getElementsByTagName("a");
+        for (var i = 0; i < a.length; i++) {
+            a[i].index = i;
+            a[i].onmouseover = function () {
+                var final_y = -506;
+                var final_x = -(this.index * 153+445);
+                moveElement("hjc_img", final_x, final_y, 10);
+            }
+        }
+    }
+    imageSlide();
+
+</script>
+</html>

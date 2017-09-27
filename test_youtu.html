@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="youtu_test.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+<div class="comment-list"></div>
+</body>
+<script>
+    var videoComment = {
+        //切换评论tab标签
+        toTime: function (timeStamp) {
+            var date = new Date(parseInt(timeStamp));
+            return [date.getFullYear(), date.getMonth() + 1, date.getDate()].join('-') + ' ' + [date.getHours(), date.getMinutes()].join(':'); // 2015-1-2
+        },
+        // 创建评论及回复区域
+        createCommentArea: function () {
+            // 获取评论数据
+            $.ajax({
+                type: "GET",
+                url: "youtu_test.json",
+                success: function (data) {
+                    var comment_list = $(".comment-list");
+                    //评论数量
+                    var comment_num = data.data.data.length;
+                    if (comment_num > 0) {
+                        for (var i = 0; i < comment_num; i++) {
+                            // 创建评论区
+                            var comment = $('<div class="list-item clearfloat" data-id="' + data.data.data[i].id + '">\n' +
+                                '                <div class="u-face" >\n' +
+                                '                    <a href="space.html?id=' + data.data.data[i].userId + '" target="_blank">\n' +
+                                '                        <img src="' + data.data.data[i].userPortrait + '">\n' +
+                                '                    </a>\n' +
+                                '                </div>\n' +
+                                '                <div class="con">\n' +
+                                '                    <div class="user clearfloat">\n' +
+                                '                        <a href="space.html?id=' + data.data.data[i].userId + '" target="_blank">' + data.data.data[i].username + '</a>\n' +
+                                '                        <div class="time">' + videoComment.toTime(data.data.data[i].createdate) + '</div>\n' +
+                                '                    </div>\n' +
+                                '                    <p class="text" >\n' + data.data.data[i].content +
+                                '                    </p>\n' +
+                                '            <div class="comment-info " >\n' +
+                                '                <span class="floor"> #' + data.data.data[i].floors + '</span>\n' +
+                                '                <div class="up"><span>' + data.data.data[i].goodHits + '</span></div>\n' +
+                                '                <div class="down"><span>' + data.data.data[i].badHits + '</span></div>\n' +
+                                '                <span class="reply ">回复</span>\n' +
+                                '            </div>\n' +
+                                '                    <div class="comment-send reply-input">\n' +
+                                '                        <textarea class="comment-text" placeholder="请自觉遵守互联网相关的政策法规，发布友善内容"></textarea>\n' +
+                                '                        <input class="comment-btn" type="button" value="发送">\n' +
+                                '                    </div>\n' +
+                                '              </div>\n' +
+                                '      </div>');
+                            $(comment_list).append($(comment));
+                            // 该评论回复数
+                            var reply_num = data.data.data[i].commentSeconds.length;
+                            //创建回复区
+                            if (reply_num > 0) {
+                                // 为回复内容添加@符号
+                                for (var j = 0; j < reply_num; j++) {
+                                    var reply_id = data.data.data[i].commentSeconds[j].replyId;
+                                    if (reply_id != data.data.data[i].id) {
+                                        for (var k = 0; k < reply_num; k++) {
+                                            if (reply_id == data.data.data[i].commentSeconds[k].id) {
+                                                data.data.data[i].commentSeconds[j].content = "回复 @" + data.data.data[i].commentSeconds[k].replyUserName + " " + data.data.data[i].commentSeconds[j].content;
+                                            }
+                                        }
+                                    }
+                                }
+                                $('.text').after('<div class="reply-box" ></div>');
+                                var reply_wrapper = $('.reply-box');
+                                for (var j = 0; j < reply_num; j++) {
+                                    var reply = $('   <div class="reply-item reply-border" >\n' +
+                                        '                            <div class="reply-con clearfloat">\n' +
+                                        '                                <div class="reply-user"><a href="space.html?id=' + data.data.data[i].commentSeconds[j].replyUserId + '" target="_blank">' + data.data.data[i].commentSeconds[j].replyUserName + '</a></div>\n' +
+                                        '                                <div class="reply-time">' + videoComment.toTime(data.data.data[i].commentSeconds[j].createdate) + '</div>\n' +
+                                        '                            </div>\n' +
+                                        '                            <div class="reply-info" >\n' +
+                                        '                                <span class="reply ">回复</span>\n' +
+                                        '                                <div class="up"><span>' + data.data.data[i].commentSeconds[j].goodHits + '</span></div>\n' +
+                                        '                                <div class="down"><span>' + data.data.data[i].commentSeconds[j].badHits + '</span></div>\n' +
+                                        '                            </div>\n' +
+                                        '                            <p class="reply-text">\n' + data.data.data[i].commentSeconds[j].content +
+                                        '                               </p>\n' +
+                                        '                        </div>\n'
+                                    );
+                                    $(reply_wrapper).append($(reply));
+                                }
+                            }
+
+                        }
+                    }
+                    else{
+                        $(comment_list).html('暂时还没有评论哦');
+                    }
+                    videoComment.makeReply();
+                    videoComment.Page()
+                }
+            });
+        },// createcommentarea
+        // 回复功能
+        makeReply: function () {
+            $('.reply').click(function () {
+                var reply_type_ele = $(this).parent().prev();
+                if ($(reply_type_ele).attr('class') === 'reply-con clearfloat') {
+                    $('.reply-input').hide();
+                    $('.reply-input').find('.comment-text').attr('placeholder', '回复@' + $(reply_type_ele).find('.reply-user>a').html());
+                    $(this).parents().eq(4).find('.reply-input').show();
+                }
+                else  {
+                    $('.reply-input').hide();
+                    $('.reply-input').find('.comment-text').attr('placeholder', '请自觉遵守互联网相关的政策法规，发布友善内容');
+                    $(this).parents().eq(2).find('.reply-input').show();
+                }
+            });
+        },//makereply
+        Page: function (address, commentLength, pageIndex, eventCount, navigateCount, Country, Class, Sort) {
+            // address        添加分页器的地址
+            // commentLength  得到评论数量
+            // pageIndex      当前页
+            // eventCount     每页显示多少个
+            // navigateCount  分页显示多少个（页码数字）
+            // keyword        搜索关键词
+
+            var overCount = commentLength % eventCount; //剩下的评论
+            var pageCount = Math.ceil(commentLength / eventCount);  //共有多少页
+
+
+            //生成分页并给所在分页的添加current
+            function pagehtml(pageCount, pageIndex, navigateCount) {
+                var pageListhtml = '<div class="list-page">';
+                pageListhtml += '<a href="javascript:;" class="prev">上一页</a>'
+                for (var i = 1; i <= pageCount; i++) {
+                    pageListhtml += '<a href="javascript:;" class="pageNumber">' + i + '</a>'
+                }
+                pageListhtml += '<a href="javascript:;" class="next">下一页</a>'
+                pageListhtml += '</div>'
+                $("." + address).append(pageListhtml)
+                //给所在分页的添加current
+                $(".pageNumber").eq(pageIndex - 1).addClass("current")
+                //判断是否为第一页 如果为是隐藏上一页按钮
+                if (pageIndex == 1) {
+                    $(".list-page>.prev").hide();
+                }
+                //判断是否为最后一页 如果为是隐藏下一页按钮
+                if (pageIndex == pageCount) {
+                    $(".list-page>.next").hide();
+                }
+                //分页显示并添加...
+                if (pageCount > navigateCount + 1) {
+                    $(".pageNumber").hide();
+                    if (pageIndex == 1) {// 首页情况
+                        for (var i = 0; i < (navigateCount); i++) {
+                            $(".pageNumber").eq(i).show();
+                        }
+                        $(".pageNumber").eq(navigateCount).after('<span class="dian">...</span>');// 在其后追加一个span
+                        $(".pageNumber").eq(-1).show();
+                    } else if (pageIndex == pageCount) {// 尾页情况
+                        $(".pageNumber").eq(0).show();
+                        $(".pageNumber").eq(0).after('<span class="dian">...</span>');
+                        for (var i = pageCount; i > pageCount - (navigateCount + 1); i--) {
+                            $(".pageNumber").eq(i + 1).show();
+                        }
+                    } else {// 其他页情况
+                        $(".pageNumber").eq(0).show();// 显示第一页页码
+                        if (pageIndex > navigateCount - 1) {// 当前页大于显示页数倒数第二个位置
+                            $(".pageNumber").eq(0).after('<span class="dian">...</span>');
+                        }
+                        for (var i = pageIndex - ((navigateCount - 1) / 2) - 1; i < pageIndex - ((navigateCount - 1) / 2) - 1 + navigateCount; i++) {
+                            $(".pageNumber").eq(i).show();
+                        }
+                        $(".pageNumber").eq(-1).show();
+                        if (pageIndex < pageCount - 3) {// 当前页小于总页数倒数第三个时
+                            $(".pageNumber").eq(-1).before('<span class="dian">...</span>');
+                        }
+
+                    }
+                }
+            }
+
+
+            //执行生成分页并给所在分页的添加current
+            pagehtml(pageCount, pageIndex, navigateCount)
+
+            //添加点击跳转页面
+            $(".pageNumber").click(function () {
+                if ($(this).text() != pageIndex) {
+                    window.location.href = ("videolib.html?country=" + Country + "&class=" + Class + "&sort=" + Sort + "&page=" + $(this).text())
+                }
+            });
+            $(".list-page>.prev").click(function () {
+                window.location.href = ("videolib.html?country=" + Country + "&class=" + Class + "&sort=" + Sort + "&page=" + (pageIndex - 1))
+
+            });
+            $(".list-page>.next").click(function () {
+                window.location.href = ("videolib.html?country=" + Country + "&class=" + Class + "&sort=" + Sort + "&page=" + (pageIndex - 0 + 1))
+            });
+        }// page
+    };
+    $(function () {
+        videoComment.createCommentArea();
+    })
+
+
+    /*    $.ajax({
+            type:"GET" ,
+            url:"youtu_test.json",
+            success:function (data) {
+                var comment_list=$(".comment-list");
+                //评论数量
+                var comment_num=data.data.total;
+                if(comment_num>0){
+                    for (var i=0;i<comment_num;i++){
+                        // 创建评论区
+                        var comment=$('<div class="list-item clearfloat">\n' +
+                            '                <div class="u-face" >\n' +
+                            '                    <a href="" target="_blank">\n' +
+                            '                        <img >\n' +
+                            '                    </a>\n' +
+                            '                </div>\n' +
+                            '                <div class="con">\n' +
+                            '                    <div class="user clearfloat">\n' +
+                            '                        <a href="" target="_blank"></a>\n' +
+                            '                        <div class="time"></div>\n' +
+                            '                    </div>\n' +
+                            '                    <p class="text" >\n' +
+                            '                    </p>\n' +
+                            '            <div class="comment-info" >\n' +
+                            '                <span class="floor"></span>\n' +
+                            '                <div class="up"><span></span></div>\n' +
+                            '                <div class="down"><span></span></div>\n' +
+                            '                <span class="reply ">回复</span>\n' +
+                            '            </div>\n'+
+                            '                    <div class="comment-send">\n' +
+                            '                        <textarea class="comment-text" placeholder="快来说说你的想法..."></textarea>\n' +
+                            '                        <input class="comment-btn" type="button" value="发送">\n' +
+                            '                    </div>\n' +
+                            '              </div>\n' +
+                            '      </div>');
+                        $(comment_list).append($(comment));
+                    }
+
+                    // 绑定评论数据
+                    $(".list-item").each(function (index) {
+                        $(this).find(".time").text(videoComment.toTime(data.data.data[index].createdate));
+                        $(this).find(".text").text(data.data.data[index].content);
+                        $(this).find(".floor").text("#"+data.data.data[index].floors);
+                        $(this).find(".up>span").text(data.data.data[index].goodHits);
+                        $(this).find(".down>span").text(data.data.data[index].badHits);
+                        $(this).children('.u-face>a').attr({'href': "space.html?id=" + data.data.data[index].userId});
+
+                    });
+
+
+                }
+            }
+        });*/
+</script>
+</html>

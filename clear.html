@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+    li {
+        list-style-type: none
+    }
+    a {
+        text-decoration: none
+    }
+    body {
+        background-color: #eee
+    }
+    .nav {
+        position: absolute;
+        right: 280px;
+        top: 0;
+        text-align: center
+    }
+    .nav a {
+        font-size: 14px;
+        display: block;
+        color: #fff
+    }
+    .nav a:hover {
+        font-size: 18px
+    }
+    .nav li {
+        width: 90px;
+        background-color: #1abc9c
+    }
+    .nav>li {
+        float: left;
+        height: 70px;
+        line-height: 70px
+    }
+    .nav ul li {
+        height: 34px;
+        line-height: 34px;
+        background-color: #f55
+    }
+    .nav ul {
+        display: none;
+        border-top: 1px solid #01a796
+    }
+    .nav li:hover ul {
+        display: block
+    }
+    .clearfix {
+        *zoom: 1;
+    }
+    .clearfix:after {
+        display: block;
+        visibility: hidden;
+        clear: both;
+        height: 0;
+        content: ''
+    }
+</style>
+<body>
+<ul class="nav clearfix">
+    <li><a href="#">订单管理</a>
+        <ul>
+            <li><a href="#">订单管理</a></li>
+            <li><a href="#">订单管理</a></li>
+            <li><a href="#">订单管理</a></li>
+            <li><a href="#">订单管理</a></li>
+        </ul>
+    </li>
+    <li><a href="#">订单管理</a>
+        <ul>
+            <li><a href="#">订单管理</a></li>
+            <li><a href="#">订单管理</a></li>
+            <li><a href="#">订单管理</a></li>
+            <li><a href="#">订单管理</a></li>
+        </ul>
+    </li>
+    <li><a href="#">订单管理</a>
+        <ul>
+            <li class="clearfix"><a href="#">订单管理</a></li>
+            <li class="clearfix"><a href="#">订单管理</a></li>
+            <li class="clearfix"><a href="#">订单管理</a></li>
+            <li class="clearfix"><a href="#">订单管理</a></li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

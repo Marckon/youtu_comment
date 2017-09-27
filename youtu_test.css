@@ -1,0 +1,915 @@
+/*清除样式*/
+@import "base/reset.css";
+/*顶部信息区*/
+@import "base/header.css";
+/*底部区域*/
+@import "base/footer.css";
+/*swiper*/
+@import "base/swiper.css";
+
+
+
+.main {
+    width: 1180px;
+    margin: 0 auto;
+}
+
+body {
+    background: #f8f9fa;
+}
+
+/*上部分背景区*/
+.topNav-bg{
+    height: 60px;
+    background: #4ca5bb;
+}
+
+
+/*视频上部视频标题和订阅区*/
+.info1-wrapper {
+    margin: 12px 0 12px 0;
+}
+
+.info1 {
+    position: relative;
+    margin: 0 auto;
+    width: 1180px;
+
+}
+
+.info1-l {
+    font-size: 12px;
+    color: #666;
+}
+
+.info1-l .v-title {
+    font-size: 24px;
+    font-weight: bold;
+    width: 640px;
+    min-height: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: black;
+    overflow: hidden;
+
+}
+
+.info1-l .v-country {
+    line-height: 32px;
+}
+
+.info1-l span {
+    margin: 2px 3px;
+    line-height: 27px;
+}
+
+.info1-l .v-class-f {
+    line-height: 32px;
+}
+
+.info1-l .v-class-s {
+    line-height: 32px;
+}
+
+.info1-l .v-time {
+    margin-left: 110px;
+    line-height: 32px;
+}
+
+.info1-r {
+    position: relative;
+
+}
+
+.info1-r-w {
+    position: relative;
+    z-index: 5;
+    padding: 5px 0 0 10px;
+    width: 268px;
+    height: 65px;
+    background: white;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+}
+
+.info1-r-w .v-avatar a img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.info1-r-w .v-username {
+    margin: -54px 0 0 74px;
+}
+
+.info1-r-w .v-username a {
+    display: inline-block;
+    width: 170px;
+    height: 16px;
+    font-size: 16px;
+    color: #000;
+    word-wrap: break-word;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+}
+
+.info1-r-w .v-desc {
+    margin: 6px 0 7px 74px;
+    width: 180px;
+    height: 23px;
+    font-size: 12px;
+    color: #666;
+    overflow: hidden;
+}
+
+.info1-r .v-subscribe-btn {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    padding-top: 10px;
+    width: 22px;
+    height: 61px;
+    line-height: 25px;
+    cursor: pointer;
+    color: white;
+    background: #dc2024;
+    border-radius: 3px;
+    text-align: center;
+    z-index: 1;
+    transition: all 0.4s;
+}
+
+.info1-r:hover .v-subscribe-btn {
+    transform: translateX(-21px);
+}
+
+/*视频播放部分*/
+.videoPlay-wrapper .main {
+    position: relative;
+    text-align: center;
+}
+
+
+.videoPlay-wrapper .main img {
+    width: 100%;
+}
+
+/*左侧分享栏*/
+.play-l-list{
+    position: absolute;
+    top: 85px;
+    left: -120px;
+}
+.play-l-list>li{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: 12px 12px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.play-l-list>li.like{
+    top: 0;
+    background-image: url(../../image/v-play/like.png);
+    background-color: #0098cf;
+}
+.play-l-list .like:hover{
+    opacity: 0.87;
+}
+.play-l-list>li.dislike{
+    top: 80px;
+    background-image: url(../../image/v-play/dislike.png);
+    background-color: #ff4e57;
+}
+.play-l-list .dislike:hover{
+    opacity: 0.87;
+}
+.play-l-list>li.share{
+    top: 160px;
+    background-image: url(../../image/v-play/share.png);
+    background-color: #ffcf00;
+}
+.play-l-list .share:hover{
+    opacity: 0.87;
+}
+.play-l-list>li.collect{
+    top: 240px;
+    background-image: url(../../image/v-play/collect.png);
+    background-color: #81d465;
+}
+.play-l-list .collect:hover{
+    opacity: 0.87;
+}
+.play-l-list>li.share-list{
+    z-index: 1;
+}
+.share-list{
+    display: none;
+}
+.share-list ul li{
+    position: absolute;
+    top: 250px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: 8px 8px;
+    z-index: 1;
+}
+.share-list ul li.wechat{
+    background-image: url(../../image/v-play/wechat.png);
+    background-color: #81d465;
+}
+.share-list ul li.qq{
+    background-image: url(../../image/v-play/qq.png);
+    background-color: #0098cf;
+}
+.share-list ul li.qzone{
+    background-image: url(../../image/v-play/qzone.png);
+    background-color: #ffcf00;
+}
+.share-list ul li.weibo{
+    background-image: url(../../image/v-play/weibo.png);
+    background-color: #ff4e57;
+}
+
+
+/*视频下部视频标题和订阅区*/
+.info2-wrapper {
+    margin: 30px 0;
+}
+
+.info2 {
+    position: relative;
+    padding: 30px 50px 0 30px;
+    margin: 0 auto;
+    width: 1098px;
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #6d757a;
+}
+
+.info2 .v-img img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.info2 .v-title {
+    margin: 20px 0 0 25px;
+    width: 690px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+    color: #525659;
+    overflow: hidden;
+}
+
+.info2 .v-desc {
+    margin: 80px 0 18px 0;
+    line-height: 18px;
+}
+
+.info2 .v-tag {
+    margin-bottom: 30px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.info2 .v-tag span {
+    display: inline-block;
+    padding: 0 12px;
+    margin-right: 12px;
+    background: #e5e5e5;
+    border-radius: 4px;
+    color: #a4a4a4;
+    font-size: 8px;
+}
+
+.info2 .v-subscribe-btn {
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    width: 70px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 3px;
+    background: #dc2024;
+    color: white;
+    cursor: pointer;
+}
+
+.info2 .v-subscribe-btn span {
+    float: left;
+    display: block;
+    margin: 7px 6px 0 12px;
+    width: 14px;
+    height: 14px;
+    background: url("../../image/v-play/v-subscribe-btn-icon.png");
+}
+
+/*相关视频区*/
+.otherVideo-wrapper {
+    margin-bottom: 30px;
+}
+
+.otherVideo {
+    position: relative;
+    padding: 30px 50px;
+    margin: 0 auto;
+    width: 1078px;
+    height: 278px;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+    background: white;
+}
+
+.otherVideo .other-title {
+    color: #dc2024;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.otherVideo .other-left-btn {
+    position: absolute;
+    right: 15px;
+    top: 125px;
+    width: 12px;
+    height: 20px;
+    background: url("../../image/v-play/other-left-btn.png");
+}
+
+.otherVideo .other-right-btn {
+    position: absolute;
+    left: 15px;
+    top: 125px;
+    width: 12px;
+    height: 20px;
+    background: url("../../image/v-play/other-right-btn.png");
+}
+
+.otherVideo .other-index {
+    position: absolute;
+    right: 50px;
+    top: 30px;
+}
+
+.otherVideo .other-index .swiper-pagination-bullet {
+
+    float: left;
+    margin-left: 6px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #9e9e9e;
+    background: white;
+    border-radius: 50%;
+}
+
+.otherVideo .other-index .swiper-pagination-bullet-active {
+    background: #dc2024;;
+    border: 1px solid #dc2024 !important;
+}
+
+.swiper-container {
+    width: 840px;
+}
+
+.other-v {
+    height: 236px;
+    width: 840px;
+    margin-top: 30px;
+}
+
+.swiper-slide .v-img {
+    display: block;
+    position: relative;
+    width: 220px;
+    height: 132px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.swiper-slide .v-img img {
+    transition: all 1s;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide .v-img:hover img {
+    transform: scale(1.2);
+    transform-origin: 50% 50%;
+}
+
+.swiper-slide .v-img span {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 12px;
+    color: #FFFFFF;
+    opacity: 0.78;
+}
+
+
+/*视频图片下信息区*/
+.v-info .v-title{
+    display: block;
+    padding: 15px 1px;
+    width: 218px;
+    height:34px;
+    line-height: 22px;
+    font-size: 14px;
+    color: #022443;
+    word-wrap: break-word;
+    word-break: break-all;
+    letter-spacing: 1.17px;
+    opacity: 0.87;
+    overflow: hidden;
+}
+.v-info .v-title:hover{
+    opacity: 1;
+}
+.v-title span{
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    height: 1px;
+    border-radius: 1px;
+    background-color: #e6e6e6;
+}
+.v-info .v-l{
+    float: left;
+}
+.v-info .v-r{
+    float: left;
+}
+.v-info .v-avatar{
+    display: block;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.v-r .v-user{
+    display: block;
+    margin-left: 6px;
+    width: 180px;
+    font-size: 12px;
+    color: #022443;
+    opacity: 0.54;
+}
+.v-r .v-time{
+    float: left;
+    margin-left: 6px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #022443;
+    opacity: 0.34;
+}
+.v-r .v-class{
+    float: right;
+    margin-left: 14px;
+    margin-top: 7px;
+}
+.v-class .v-c{
+    float: left;
+}
+.v-c a{
+    font-size: 12px;
+    color: #022443;
+    opacity: 0.34;
+}
+.v-class .v-f{
+    float: left;
+}
+.v-f a{
+    font-size: 12px;
+    color: #022443;
+    opacity: 0.34;
+}
+.v-class span{
+    margin: 2px 3px;
+    float: left;
+    font-size: 12px;
+    color: #022443;
+    opacity: 0.34;
+}
+.v-class .v-s{
+    float: left;
+}
+.v-s a{
+    font-size: 12px;
+    color: #022443;
+    opacity: 0.34;
+}
+
+/*评论区域*/
+.comment-wrapper {
+    margin-bottom: 50px;
+}
+
+.comment {
+    position: relative;
+    padding: 30px 50px;
+    margin: 0 auto;
+    width: 1078px;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+    background: white;
+}
+
+/*评论发送区 comment-text*/
+.comment-send .comment-text {
+    float: left;
+    padding: 5px 10px;
+    width: 88%;
+    height: 50px;
+    background: #f4f4f4;
+    border: 1px solid #e5e9ef;
+    border-radius: 4px;
+    outline: none;
+    resize: none;
+    overflow: auto;
+    color: #555;
+}
+
+.comment-send .comment-text::-moz-placeholder {
+    color: #b2b2b2;
+}
+
+::-webkit-input-placeholder {
+    color: #b2b2b2;
+}
+
+:-ms-input-placeholder {
+    color: #b2b2b2;
+}
+
+.comment-send .comment-btn {
+    float: right;
+    padding: 4px 15px;
+    width: 60px;
+    height: 60px;
+    background: #dc2024;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+/*评论头部 分页 comment-header*/
+.comment-header {
+    margin-top: 20px;
+    height: 63px;
+    border-top: 1px solid #e7e7e7;
+}
+.tabs-order {
+    float: left;
+    margin: 30px 0 0 10px;
+}
+
+.tabs-order li {
+    cursor: pointer;
+    position: relative;
+    float: left;
+    margin-right: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #666666;
+}
+
+.tabs-order .on {
+    color: #dc2024;
+}
+
+.tabs-order .on:after {
+    position: absolute;
+    left: -9px;
+    bottom: -20px;
+    content: "";
+    width: 76px;
+    height: 2px;
+    background: #dc2024;
+    z-index: 2;
+}
+
+.header-page {
+    float: right;
+    margin-top: 32px;
+    margin-right: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.header-page a {
+    margin-left: 5px;
+    color: #666;
+}
+
+.header-page span {
+    margin-left: 5px;
+}
+
+.header-page .current {
+    color: #dc2024;
+    font-weight: 700;
+}
+
+/*评论列表 comment-list*/
+.comment-list {
+    border-top: 1px solid #e7e7e7;
+}
+
+.comment-list-load {
+    width: 100%;
+    height: 500px;
+    line-height: 200px;
+    text-align: center;
+}
+
+.list-item {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.list-item .u-face {
+    float: left;
+    margin: 30px 0 0 10px;
+
+}
+
+.list-item .u-face a img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.list-item .con {
+    float: left;
+}
+
+.list-item .user {
+    margin: 40px 0 0 20px;
+}
+
+.list-item .user a {
+    float: left;
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+}
+
+.list-item .user .time {
+    float: left;
+    margin-left: 15px;
+    font-size: 8px;
+    color: #afafaf;
+}
+
+.list-item .text {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 978px;
+    line-height: 18px;
+    font-size: 12px;
+}
+
+/*回复盒子区 reply-box*/
+.reply-box {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 0 15px;
+    width: 958px;
+    background: #f4f4f4;
+    border-radius: 4px;
+}
+
+.reply-box:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    width: 12px;
+    height: 10px;
+    background: url("../../image/v-play/reply-box-top-icon.png");
+}
+
+.reply-con .reply-user {
+    float: left;
+    margin-top: 12px;
+}
+
+.reply-con .reply-time {
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    font-size: 8px;
+    color: #afafaf;
+}
+
+.reply-item .reply-user a {
+    font-size: 14px;
+    color: #a0a0a0;
+}
+
+.reply-item .reply-info {
+    float: right;
+    margin-top: -15px;
+    font-size: 12px;
+    color: #b2b2b2;
+}
+
+.reply-item .reply-text {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    line-height: 18px;
+
+}
+
+.reply-info .up {
+    cursor: pointer;
+    float: left;
+    margin-left: 15px;
+    height: 16px;
+    line-height: 16px;
+    background: url("../../image/v-play/up-icon.png") no-repeat;
+}
+
+.reply-info .up span {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.reply-info .down {
+    cursor: pointer;
+    float: left;
+    margin-left: 15px;
+    height: 16px;
+    line-height: 16px;
+    background: url("../../image/v-play/down-icon.png") no-repeat;
+}
+
+.reply-info .down span {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.reply-info .reply {
+    cursor: pointer;
+    float: left;
+    margin-left: 15px;
+    line-height: 16px;
+}
+
+.reply-border {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+/*回复分页*/
+.paging-box {
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+.paging-box a {
+    margin-right: 5px;
+    color: #333;
+}
+
+.paging-box span {
+    margin-right: 5px;
+}
+
+.paging-box .current {
+    color: black;
+    font-weight: 600;
+}
+
+/*回复更多 reply-more*/
+.reply-more {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: #cacaca;
+}
+
+.reply-more span {
+    display: inline-block;
+    margin: 0 8px;
+    width: 12px;
+    height: 12px;
+    background: url("../../image/v-play/reply-more-icon.png") no-repeat;
+}
+
+/*回复区的图标区 comment-info */
+.comment-info {
+    margin: 15px 0 30px 20px;
+    color: #999;
+    font-size: 12px;
+}
+
+.comment-info .floor {
+    float: left;
+    line-height: 16px;
+}
+
+.comment-info .up {
+    cursor:pointer;
+    float: left;
+    margin-left: 15px;
+    height: 16px;
+    line-height: 16px;
+    background: url("../../image/v-play/up-icon.png") no-repeat;
+}
+
+.comment-info .up span {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.comment-info .down {
+    cursor: pointer;
+    float: left;
+    margin-left: 15px;
+    height: 16px;
+    line-height: 16px;
+    background: url("../../image/v-play/down-icon.png") no-repeat;
+}
+
+.comment-info .down span {
+    display: block;
+    margin-left: 20px;
+}
+
+.comment-info .reply {
+    cursor: pointer;
+    float: left;
+    margin-left: 15px;
+    line-height: 16px;
+}
+
+/*回复 con-comment-send*/
+.con .comment-send {
+    margin-top: 45px;
+}
+
+.con .comment-send .comment-text {
+    margin-left: 20px;
+    width: 85%;
+}
+
+
+
+/*媒体查询*/
+@media screen and (max-width: 1400px) {
+    .main {
+        width: 940px;
+    }
+    .info1 {
+        width: 940px;
+    }
+
+    .info2 {
+        width: 858px;
+    }
+
+    .otherVideo {
+        width: 840px;
+    }
+
+    .other-v {
+        padding: 0;
+    }
+    .con{
+        width: 768px;
+    }
+    .comment {
+        width: 838px;
+    }
+
+    .list-item .text {
+        width: 757px;
+    }
+
+    .reply-box {
+        width: 718px;
+    }
+}
+
+.reply-input{
+    display: none;
+}

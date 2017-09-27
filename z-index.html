@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #top{
+            width: 90px;
+            height: 100px;
+            z-index:2;
+            position:fixed;
+            top: 10px;
+            left: 20px;
+            background: yellowgreen;
+        }
+        #bottom{
+            width: 90px;
+            height: 100px;
+            z-index:1;
+            position:fixed;
+            top: 10px;
+            left: 20px;
+            background: black;
+        }
+        .parent1{
+            padding: 10px;
+            border:dashed gold 2px;
+        }
+        .parent1:after{
+            content:'';
+            height:0;
+            visibility: hidden;
+            clear: both;
+            display: block;
+        }
+        .child1{
+            width: 90px;
+            height: 100px;
+            background: burlywood;
+            float: left;
+            vertical-align: baseline;
+        }
+        .child2{
+            width: 20px;
+            height: 50px;
+            background: burlywood;
+            float: left;
+            vertical-align: baseline;
+
+        }
+        .child3{
+            width: 40px;
+            height: 60px;
+            background: burlywood;
+            float: left;
+            vertical-align: baseline;
+
+        }
+    </style>
+</head>
+<body>
+<!--<div id="top"></div>
+<div id="bottom"></div>-->
+<div class="parent1">
+    <div class="child1"></div>
+    <div class="child2"></div>
+    <div class="child3"></div>
+</div>
+</body>
+</html>

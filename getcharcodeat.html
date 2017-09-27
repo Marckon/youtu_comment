@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        var lcz = {
+            getByteLen: function (val) {
+                var len = 0;
+                for (var i = 0; i < val.length; i++) {
+                    var length = val.charCodeAt(i);
+                    if (length >= 0 && length <= 128) {
+                        len += 1;
+                    }
+                    else {
+                        len += 2;
+                    }
+                }
+                return len;
+            }
+        };
+        $(function () {
+            $('#ok').click(function () {
+                var value = $('#input').val();
+//                $(this).find($('.v-title')).html(youtuVedio.getByteLen(data.data[index].vedioTitle) > 26 ? data.data[index].vedioTitle : data.data[index].vedioTitle + "<span></span>");
+//                $('#title').html(lcz.getByteLen(value) > 26 ? value+' ' +lcz.getByteLen(value) : value + '<span></span>'+' ' +lcz.getByteLen(value));
+                var escape1=escape(value);
+                var reg = new RegExp("(^|&)" + "page" + "=([^&]*)(&|$)");
+                var r = value.match(reg);
+                for(var i=0;i<r.length;i++){
+                   var li=$('<li>'+r[i]+'</li>');
+                   $('#title').append(li);
+                }
+            });
+            var child=$('<div class="u-face" data-usercard-mid="1234567" >\n' +
+                '                    <a href="" target="_blank">\n' +
+                '                        <img src="images/v-play/videoimg08.png">\n' +
+                '                    </a>\n' +
+                '                </div>');
+            $('body').append($(child));
+        })
+        function popUp(url) {
+            window.open(url,"popup-win","width:320px,height:420px");
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="input">
+<button id="ok">ok</button>
+<div id="title"></div>
+<div id="search-optimize">
+    <a href="https://www.baidu.com" onclick="popUp('https://www.baidu.com'); return false;">go baidu</a>
+    <a href="#">go #</a>
+    <a href="javascript:;">go js:;</a>
+</div>
+</body>
+</html>

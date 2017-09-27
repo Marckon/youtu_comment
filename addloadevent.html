@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function addLoadEvent(func) {
+            var oldonload=window.onload;
+            if(typeof  oldonload !="function"){
+                window.onload=func;
+            }else {
+                window.onload=function () {
+                    oldonload();
+                    func();
+                }
+            }
+        }
+
+        function initialWords() {
+            var textinput=document.getElementById("words");
+            textinput.value="blank";
+        }
+        function showlist() {
+            var list=document.getElementById("list");
+            list.innerHTML=document.getElementById("words").value;
+        }
+
+        addLoadEvent(initialWords);
+        addLoadEvent(showlist);
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" id="words">
+        <div id="list"></div>
+    </div>
+</body>
+</html>

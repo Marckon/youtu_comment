@@ -1,0 +1,138 @@
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: white;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:white;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: white;
+}
+
+/*顶部信息区*/
+.topNav-wrapper {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-size: 100%;
+    z-index: 10000;
+}
+
+.topNav {
+    margin: 0 auto;
+    padding: 18px 0;
+    height: 24px;
+    width: 1180px;
+}
+
+.topNav-l {
+    float: left;
+    line-height: 24px;
+}
+
+.topNav-r {
+    float: right;
+    line-height: 24px;
+}
+
+.topNav-l .logo {
+    width: 110px;
+}
+
+.topNav-l .logo img {
+    margin-left: -15px;
+    width: 120%;
+}
+
+.topNav ul li a {
+    display: block;
+    width: 90px;
+    height: 24px;
+    font-size: 14px;
+    color: #fff;
+    opacity: 0.87;
+    text-align: center;
+}
+
+.topNav ul li a:hover {
+    font-family: NotoSans-Bold;
+    opacity: 1;
+}
+
+.topNav .register {
+    margin-right: 20px;
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #FFFFFF;
+    opacity: 0.87;
+    text-align: center;
+}
+
+.topNav .register:hover {
+    opacity: 1;
+}
+
+.topNav .login {
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+    background: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+
+.topNav .upload a {
+    display: block;
+    margin-right: 15px;
+    width: 30px;
+    height: 24px;
+    line-height: 24px;
+    opacity: 0.87;
+    background: url("../../image/topNav/upLoad_icon.png") 100%;
+    text-align: center;
+}
+
+.topNav .upload a:hover {
+    opacity: 1;
+}
+
+.topNav form {
+    display: block;
+    margin-right: 30px;
+    width: 200px;
+    border-radius: 12px;
+    background: #e9f1f8;
+}
+
+.topNav .searchBtn {
+    width: 30px;
+    height: 24px;
+    background: url("../../image/topNav/search_icon.png") no-repeat;
+}
+
+.topNav form:hover .searchBtn {
+    background: url("../../image/topNav/search_icon_hover.png") no-repeat;
+}
+
+.topNav .searchText {
+    padding: 0 10px;
+    width: 150px;
+    height: 24px;
+    background: #e9f1f8;
+    border-radius: 12px;
+}
+
+
+/*媒体查询*/
+@media screen and (max-width: 1400px) {
+    .topNav {
+        width: 940px;
+    }
+}

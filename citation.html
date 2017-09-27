@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        tr:nth-of-type(odd){
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <blockquote cite="http://www.w3.org/DOM">
+        <p>
+            A platform- and language-neutral interface that will allow programs and scripts
+            to dynamically access and update the content, srtucture and style of documents.
+        </p>
+    </blockquote>
+    <blockquote cite="http://www.w3.org/JS">
+        <p>
+            sjie aldkf pxkei sliep aldfkijo alife aldkie xposoe saleix alknuv aleifne.
+        </p>
+    </blockquote><blockquote cite="http://www.w3.org/CSS">
+        <p>
+            slieylu aife lislaieaeiuv laieug laisue oi8encu sliefuel
+        </p>
+    </blockquote>
+
+    <table align="center" style="width:100px;">
+        <th colspan="2">table</th>
+        <tr>
+            <td>first</td>
+            <td>second</td>
+        </tr>
+        <tr>
+            <td>first</td>
+            <td>second</td>
+        </tr>
+        <tr>
+            <td>first</td>
+            <td>second</td>
+        </tr>
+    </table>
+    <script>
+        function displayCitations() {
+            var quote=document.getElementsByTagName("blockquote");
+            for(var i=0; i<quote.length;i++){
+                if(!quote[i].getAttribute("cite")) continue;
+                var url= quote[i].getAttribute("cite");
+                var quotechildren=quote[i].getElementsByTagName("*");
+                var p=quotechildren[quotechildren.length-1];
+                var link=document.createElement("a");
+                var superscript=document.createElement("sup");
+                link.text="source";
+                link.setAttribute("href",url);
+                superscript.appendChild(link);
+                p.appendChild(superscript);
+            }
+            document.getElementsByTagName("a")[0].setAttribute("accesskey","1");
+        }
+        displayCitations()
+    </script>
+</body>
+</html>

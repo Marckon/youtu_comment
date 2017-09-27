@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .cube {
+            background: lightblue;
+            height: 80px;
+            width: 80px;
+            border: black solid 1px;
+            margin: 10px;
+            float: left;
+        }
+
+        .clearfloat {
+            clear: both;
+        }
+
+        /*.parent{*/
+        /*!*overflow: auto;*!*/
+        /*!*height: 200px;*!*/
+        /*border: dashed brown 2px;*/
+        /*!*overflow: hidden;*!*/
+        /*!*float: left;*!*/
+        /*!*display: table;*!*/
+        /*}*/
+
+        /*使用after伪类*/
+        .parent:after {
+            display: block;
+            content: "adf ";
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+            clear: both;
+        }
+
+        .parent {
+            border: dashed brown 2px;
+            *zoom: 1;
+        }
+    </style>
+    <script>
+
+        window.onload=function(){
+            var search_area=document.getElementById('search');
+            search_area.onkeyup=function () {
+                var resultarea=document.getElementById('result');
+                resultarea.innerHTML='';
+                var word=search_area.value;
+                if(word!=''){
+                    if(document.getElementById('do')){
+                       document.body.removeChild(document.getElementById('do')) ;
+                    }
+                    var jsrpt=document.createElement('script');
+                    jsrpt.id='do';
+                    jsrpt.src='https://suggest.taobao.com/sug?code=utf-8&q='+word+'&callback=cb';
+                    document.body.appendChild(jsrpt);
+                }
+            }
+        };
+        function cb(jsonObj) {//jsonp 的函数名称
+            var resultarea=document.getElementById('result');
+            for (var i = 0; i < jsonObj.result.length; i++) {
+                var li=document.createElement('li');
+                li.innerHTML=jsonObj.result[i][0];
+                resultarea.appendChild(li);
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="parent">
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <!--<div class="clearfloat"></div>-->
+</div>
+<div>
+    <input type="text" id="search">
+    <button id="ajx">go</button>
+</div>
+<div id="result"></div>
+<div>this is a abbreviation <html:abbr>ABBR</html:abbr></div>
+</body>
+<script>
+    function Animal(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    function Cat(name, age, kind) {
+        Animal.apply(this, arguments);
+        this.kind = kind;
+    }
+
+    function Dog(name, age, kind) {
+        Animal.call(this, age, name)
+        this.kind = kind;
+    }
+
+    function getUA() {
+        document.writeln('<br>' + navigator.appName);
+        document.writeln('<br>' + navigator.appVersion);
+        document.writeln('<br>' + navigator.appCodeName);
+        document.writeln('<br>' + navigator.userAgent);
+    }
+
+    function main() {
+        var cat = new Cat('kk', 12, 'lei');
+        var dog = new Dog('dd', 13, 'sf');
+        document.writeln(cat.name + ' ' + cat.age + ' ' + cat.kind);
+        document.write(dog.name + ' ' + dog.age + ' ' + dog.kind);
+
+    }
+
+    /* function ajaxtest() {
+         var btn=document.getElementById('ajx');
+         btn.onclick=function () {
+             var xhr=new XMLHttpRequest();
+             var word=document.getElementById('search').value;
+             xhr.open('GET','https://suggest.taobao.com/sug?code=utf-8&q='+word+'&callback=cb',true);
+             xhr.send();
+             xhr.onreadystatechange=function () {
+                 if(xhr.status==200&&xhr.readyState==4 ){
+                     document.writeln(xhr.responseText);
+                 }else {
+                     alert(xhr.status+' '+xhr.readyState)
+                 }
+             }
+         }
+     }*/
+
+
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="new"></div>
+
+    <script src="ajax_js.js"></script>
+    <div>
+        <p>what is thedocument oject model</p>
+        <p>the <abbr title="World wide web consortim">w3c</abbr> defines the DOM</p>
+        <p>the <abbr title="World wide web consortim">w3c</abbr> defines the DOM</p>
+        <p>the <abbr title="World wide web consortim">w3c</abbr> defines the DOM</p>
+    </div>
+    <dl></dl>
+    <script>
+        function displayAbbreviations() {
+            var abbreviations=document.getElementsByTagName("abbr");
+            if(abbreviations.length<1) return false;
+            var defs=new Array();
+            for(var i=0;i<abbreviations.length;i++){
+                var definition=abbreviations[i].getAttribute("title");
+                var key=abbreviations[i].lastChild.nodeValue;
+                defs[key]=definition
+            }
+            alert(defs["w3c"])
+        }
+
+        displayAbbreviations()
+    </script>
+</body>
+</html>
