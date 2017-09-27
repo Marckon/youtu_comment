@@ -68,8 +68,8 @@ var videoComment = {
                         if (reply_num > 0) {
                             //为回复内容添加@符号
 
-                            $('.text').after('<div class="reply-box" ></div>');
-                            var reply_wrapper = $('.reply-box');
+                            $('.text:last').after('<div class="reply-box" ></div>');
+                            var reply_wrapper = $('.reply-box:last');
                             for (var j = 0; j < reply_num; j++) {
                                 var reply = $('   <div class="reply-item reply-border" >\n' +
                                     '                            <div class="reply-con clearfloat">\n' +
@@ -87,14 +87,15 @@ var videoComment = {
                                 );
                                 $(reply_wrapper).append($(reply));
                             }
-                            var reply_eleArr = $('.reply-item');
-                            videoComment.fullText('reply-box', reply_num, 2, reply_eleArr);
+
                         }
 
                     }
                 }
                 videoComment.makeReply();
                 videoComment.Page('comment-list', total_comments, pageNum, pageSize, 5, itemNo, typeNo);
+                var reply_eleArr = $('.reply-item');
+                videoComment.fullText('reply-box', reply_num, 2, reply_eleArr);
             }
         });
     },// createCommentArea

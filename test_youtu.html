@@ -89,8 +89,6 @@
                                     );
                                     $(reply_wrapper).append($(reply));
                                 }
-                                var reply_eleArr = $('.reply-item');
-                                videoComment.fullText('reply-box', reply_num, 2, reply_eleArr);
                             }
 
                         }
@@ -100,6 +98,8 @@
                     }
                     videoComment.makeReply();
                     videoComment.Page()
+                    var reply_eleArr = $('.reply-item');
+                    videoComment.fullText('reply-box', reply_num, 2, reply_eleArr);
                 }
             });
         },// createcommentarea
