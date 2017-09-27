@@ -213,13 +213,20 @@ var videoComment = {
             return;
         } else {
             $(replyEleArr).hide();
-            for(var i=0;i<showNum;i++){
-                $(replyEleArr).eq(i).show();
-            }
+            $(replyEleArr).filter(':lt('+showNum+')').show();
             var fullTextButton=$('<div class="reply-more"><span></span>展开更多评论</div>');
             $(address).append($(fullTextButton));
             $(fullTextButton).click(function () {
-                $(replyEleArr).show();
+                if($(this).hasClass('reply-fold')){
+                    $(replyEleArr).hide();
+                    $(replyEleArr).filter(':lt('+showNum+')').show();
+                    $(this).removeClass('reply-fold');
+                    $(this).html('<span></span>展开更多评论');
+                }else{
+                    $(this).addClass('reply-fold');
+                    $(this).html('<span></span>收起');
+                    $(replyEleArr).show();
+                }
             })
         }
 
