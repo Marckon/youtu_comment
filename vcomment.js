@@ -27,7 +27,7 @@ var videoComment = {
         // 获取评论数据
         $.ajax({
             type: "GET",
-            url: "http://106.15.39.78:8888/youtu/front/comment/getComments?itemNo=" + itemNo + "&typeNo=" + typeNo + "&pageSize=" + pageSize + "&pageNum=" + pageNum,
+            url: "youtu/front/comment/getComments?itemNo=" + itemNo + "&typeNo=" + typeNo + "&pageSize=" + pageSize + "&pageNum=" + pageNum,
             success: function (data) {
                 var comment_list = $(".comment-list");
                 var comment_num = data.data.data.length;   // 当前页评论数量
@@ -105,7 +105,8 @@ var videoComment = {
             var reply_type_ele = $(this).parent().prev();
             if ($(reply_type_ele).attr('class') === 'reply-con clearfloat') {
                 $('.reply-input').hide();
-                $('.reply-input').find('.comment-text').attr('placeholder', '回复@' + $(reply_type_ele).find('.reply-user>a').html());
+                var reply_stamp='回复@' + $(reply_type_ele).find('.reply-user>a').html();
+                $('.reply-input').find('.comment-text').attr('placeholder',reply_stamp);
                 $(this).parents().eq(4).find('.reply-input').show();
             }
             else {

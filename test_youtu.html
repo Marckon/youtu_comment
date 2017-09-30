@@ -7,6 +7,10 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
+<div class="comment-send clearfloat">
+    <textarea class="comment-text" placeholder="快来说说你的想法..."></textarea>
+    <input class="comment-btn" type="button" value="发送">
+</div>
 <div class="comment-list"></div>
 </body>
 <script>
@@ -15,6 +19,12 @@
         toTime: function (timeStamp) {
             var date = new Date(parseInt(timeStamp));
             return [date.getFullYear(), date.getMonth() + 1, date.getDate()].join('-') + ' ' + [date.getHours(), date.getMinutes()].join(':'); // 2015-1-2
+        },
+        getUrlParam: function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
         },
         // 创建评论及回复区域
         createCommentArea: function () {
@@ -89,14 +99,14 @@
                                     );
                                     $(reply_wrapper).append($(reply));
                                 }
-                                var reply_eleArr = $('#'+data.data.data[i].id ).find('.reply-item');// 找到该评论下的所有回复
-                                var reply_box=$('#'+data.data.data[i].id).find('.reply-box');// 找到该评论下的回复区
+                                var reply_eleArr = $('#' + data.data.data[i].id).find('.reply-item');// 找到该评论下的所有回复
+                                var reply_box = $('#' + data.data.data[i].id).find('.reply-box');// 找到该评论下的回复区
                                 videoComment.fullText(reply_box, reply_num, 2, reply_eleArr);
                             }
 
                         }
                     }
-                    else{
+                    else {
                         $(comment_list).html('暂时还没有评论哦');
                     }
                     videoComment.makeReply();
@@ -111,10 +121,11 @@
                 var reply_type_ele = $(this).parent().prev();
                 if ($(reply_type_ele).attr('class') === 'reply-con clearfloat') {
                     $('.reply-input').hide();
-                    $('.reply-input').find('.comment-text').attr('placeholder', '回复@' + $(reply_type_ele).find('.reply-user>a').html());
+                    var reply_stamp = '回复@' + $(reply_type_ele).find('.reply-user>a').html();
+                    $('.reply-input').find('.comment-text').attr('placeholder', reply_stamp);
                     $(this).parents().eq(4).find('.reply-input').show();
                 }
-                else  {
+                else {
                     $('.reply-input').hide();
                     $('.reply-input').find('.comment-text').attr('placeholder', '请自觉遵守互联网相关的政策法规，发布友善内容');
                     $(this).parents().eq(2).find('.reply-input').show();
@@ -213,16 +224,16 @@
                 return;
             } else {
                 $(replyEleArr).hide();
-                $(replyEleArr).filter(':lt('+showNum+')').show();
-                var fullTextButton=$('<div class="reply-more"><span></span>展开更多评论</div>');
+                $(replyEleArr).filter(':lt(' + showNum + ')').show();
+                var fullTextButton = $('<div class="reply-more"><span></span>展开更多评论</div>');
                 $(address).append($(fullTextButton));
                 $(fullTextButton).click(function () {
-                    if($(this).hasClass('reply-fold')){
+                    if ($(this).hasClass('reply-fold')) {
                         $(replyEleArr).hide();
-                        $(replyEleArr).filter(':lt('+showNum+')').show();
+                        $(replyEleArr).filter(':lt(' + showNum + ')').show();
                         $(this).removeClass('reply-fold');
                         $(this).html('<span></span>展开更多评论');
-                    }else{
+                    } else {
                         $(this).addClass('reply-fold');
                         $(this).html('<span></span>收起');
                         $(replyEleArr).show();
@@ -230,10 +241,59 @@
                 })
             }
 
-        }// fullText
+        },// fullText
+        // 获取当前用户信息
+        getCurrentUser: function () {
+            var userNo = sessionStorage.getItem('userId');
+            var userName = sessionStorage.getItem('nickname');
+            if (userNo != null) {
+                return user = {'id': userNo, 'name': userName};
+            } else {
+//                return user = {'id': null, 'name': null};
+                return user=null;
+            }
+        }
     };
     $(function () {
         videoComment.createCommentArea();
+        // 评论数据返回
+        $('.comment-send:first').find('.comment-btn').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'youtu_test.json',
+                success: function (data) {
+                    var createtime = Date.parse(new Date());
+                    var describe = $('.comment-send:first').find('.comment-text').val();
+                    var storey = data.data.data.length + 1;
+                    var commentNo = data.data.data.length;
+                    var styleNo = videoComment.getUrlParam('id');
+                    var replyNo = 0;
+                    var userNo = videoComment.getCurrentUser.id;
+                    if (userNo === null) {
+                        alert('您貌似还没有登录');
+                    } else if (describe === '') {
+                        alert('您貌似什么都没有说');
+                    } else {
+                        $.ajax({
+                            type: 'POST',
+                            url: 'youtu/front/comment/addcomment',
+                            data: {
+                                commentNo: commentNo,
+                                userNo: userNo,
+                                describe: describe,
+                                createtime: createtime,
+                                storey: storey,
+                                replyNo: replyNo,
+                                styleNo: styleNo
+                            },
+                            success: function () {
+                                videoComment.createCommentArea();
+                            }
+                        })
+                    }
+                }
+            });
+        });
     })
 
 
