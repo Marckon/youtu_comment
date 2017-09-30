@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="defd147d-4620-46ad-8216-006192728090" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_youtu.html" afterPath="$PROJECT_DIR$/test_youtu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vcomment.js" afterPath="$PROJECT_DIR$/vcomment.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -81,12 +79,12 @@
       <file leaf-file-name="test_youtu.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_youtu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="269" column="34" lean-forward="false" selection-start-line="269" selection-start-column="34" selection-end-line="269" selection-end-column="34" />
+            <state relative-caret-position="667">
+              <caret line="274" column="43" lean-forward="true" selection-start-line="274" selection-start-column="43" selection-end-line="274" selection-end-column="43" />
               <folding>
                 <element signature="e#8684#12609#0" expanded="false" />
                 <element signature="e#12708#13807#0" expanded="false" />
-                <element signature="e#15998#19043#0" expanded="false" />
+                <element signature="e#16003#19048#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -287,12 +285,12 @@
       <workItem from="1506387613516" duration="11231000" />
       <workItem from="1506474910213" duration="6998000" />
       <workItem from="1506562332941" duration="318000" />
-      <workItem from="1506757897903" duration="4895000" />
+      <workItem from="1506757897903" duration="5585000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110346000" />
+    <option name="totallyTimeSpent" value="111036000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -697,12 +695,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test_youtu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="269" column="34" lean-forward="false" selection-start-line="269" selection-start-column="34" selection-end-line="269" selection-end-column="34" />
+        <state relative-caret-position="667">
+          <caret line="274" column="43" lean-forward="true" selection-start-line="274" selection-start-column="43" selection-end-line="274" selection-end-column="43" />
           <folding>
             <element signature="e#8684#12609#0" expanded="false" />
             <element signature="e#12708#13807#0" expanded="false" />
-            <element signature="e#15998#19043#0" expanded="false" />
+            <element signature="e#16003#19048#0" expanded="false" />
           </folding>
         </state>
       </provider>

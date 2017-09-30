@@ -269,7 +269,7 @@
                     var styleNo = videoComment.getUrlParam('id');
                     var replyNo = 0;
                     var userNo = videoComment.getCurrentUser.id;
-                    if (userNo === null) {
+                    if (userNo === undefined) {
                         alert('您貌似还没有登录');
                     } else if (describe === '') {
                         alert('您貌似什么都没有说');
